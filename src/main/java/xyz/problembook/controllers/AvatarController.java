@@ -15,7 +15,7 @@ public class AvatarController {
         this.avatarService = avatarService;
     }
 
-    @PutMapping("/")
+    @PostMapping("/")
     public void add(@RequestParam(name = "url") String url) {
         avatarService.add(url);
     }
