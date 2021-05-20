@@ -2,6 +2,7 @@ package xyz.problembook.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import xyz.problembook.dtos.LoggedInDTO;
 import xyz.problembook.dtos.LoginDTO;
 import xyz.problembook.entities.StudentEntity;
 import xyz.problembook.dtos.RegisterDTO;
@@ -28,7 +29,7 @@ public class StudentController {
     }
 
     @PostMapping("/login")
-    public Integer login(@RequestBody LoginDTO loginDTO) {
+    public LoggedInDTO login(@RequestBody LoginDTO loginDTO) {
         return studentService.loginStudent(loginDTO);
     }
 

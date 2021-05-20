@@ -3,6 +3,7 @@ package xyz.problembook.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+import xyz.problembook.dtos.LoggedInDTO;
 import xyz.problembook.dtos.LoginDTO;
 import xyz.problembook.entities.StudentEntity;
 import xyz.problembook.dtos.RegisterDTO;
@@ -40,19 +41,16 @@ public class StudentService {
     /**
      * Public method for logging in a user into the database.
      * @param loginDTO the entity which tries to log in
-     * @return one of the following ReturnCodes:
-     *          - ReturnCode.studentLoginNoEntry if no entry was found in the database
-     *          - ReturnCode.studentLoginIncorrectCredentials if the credentials were incorrect
-     *          - ReturnCode.noErrors if no errors were found
+     * @return null if the student was not found or a LoggedInDTO representing the student
      */
-    public int loginStudent(LoginDTO loginDTO) {
+    public LoggedInDTO loginStudent(LoginDTO loginDTO) {
         StudentEntity student = studentRepository.findFirstByName(loginDTO.getName());
 
-        if (student == null) return ReturnCode.studentLoginNoEntry;
+        if (student == null) return null;
 
         if (student.getName().equals(loginDTO.getName()) && student.getHashPassword().equals(loginDTO.getHashPassword()))
-            return ReturnCode.noErrors;
-        return ReturnCode.studentLoginIncorrectCredentials;
+            return new LoggedInDTO(student.getName(), student.getRegistrationNumber(), student.getAvatarId());
+        return null;
     }
 
     public void updateAvatar(Integer studentId, Integer avatarId) {
