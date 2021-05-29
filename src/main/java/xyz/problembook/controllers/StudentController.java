@@ -38,8 +38,4 @@ public class StudentController {
                              @RequestParam(name = "avatarId") Integer avatarId) {
         studentService.updateAvatar(studentId, avatarId);
     }
-
-    // post register
-    // post login
-    // put update avatar
 }

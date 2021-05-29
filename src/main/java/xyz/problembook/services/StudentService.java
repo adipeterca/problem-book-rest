@@ -1,7 +1,6 @@
 package xyz.problembook.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import xyz.problembook.dtos.LoggedInDTO;
 import xyz.problembook.dtos.LoginDTO;
@@ -49,7 +48,7 @@ public class StudentService {
         if (student == null) return null;
 
         if (student.getName().equals(loginDTO.getName()) && student.getHashPassword().equals(loginDTO.getHashPassword()))
-            return new LoggedInDTO(student.getName(), student.getRegistrationNumber(), student.getAvatarId());
+            return new LoggedInDTO(student.getName(), student.getEmail(), student.getAvatarId());
         return null;
     }
 

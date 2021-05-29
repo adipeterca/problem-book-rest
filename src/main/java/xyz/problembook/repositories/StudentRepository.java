@@ -18,6 +18,6 @@ public interface StudentRepository extends JpaRepository<StudentEntity, Integer>
     @Query("select s from StudentEntity s where s.name = ?1")
     StudentEntity findFirstByName(String name);
 
-    @Query("select s from StudentEntity s where s.registrationNumber = ?1")
-    StudentEntity findFirstByRegistrationNumber(String registrationNumber);
+    @Query("select s from StudentEntity s where s.email = ?1")
+    StudentEntity findFirstByRegistrationNumber(String email);
 }

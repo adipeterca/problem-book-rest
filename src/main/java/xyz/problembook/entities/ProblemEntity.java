@@ -16,6 +16,9 @@ public class ProblemEntity {
     @Column(name = "teacherId")
     private Integer teacherId;
 
+    @Column(name = "teacherEmail")
+    private String teacherEmail;
+
     @Column(name = "hint1")
     private String hint1;
 
@@ -28,8 +31,17 @@ public class ProblemEntity {
     public ProblemEntity() {
     }
 
-    public ProblemEntity(Integer teacherId, String hint1, String hint2, String content) {
+    public ProblemEntity(Integer teacherId, String teacherEmail, String hint1, String hint2, String content) {
         this.teacherId = teacherId;
+        this.hint1 = hint1;
+        this.hint2 = hint2;
+        this.content = content;
+    }
+
+    public ProblemEntity(Integer id, Integer teacherId, String teacherEmail, String hint1, String hint2, String content) {
+        this.id = id;
+        this.teacherId = teacherId;
+        this.teacherEmail = teacherEmail;
         this.hint1 = hint1;
         this.hint2 = hint2;
         this.content = content;
@@ -45,6 +57,14 @@ public class ProblemEntity {
 
     public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
+    }
+
+    public String getTeacherEmail() {
+        return teacherEmail;
+    }
+
+    public void setTeacherEmail(String teacherEmail) {
+        this.teacherEmail = teacherEmail;
     }
 
     public String getHint1() {

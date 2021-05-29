@@ -4,7 +4,11 @@ import xyz.problembook.entities.ProblemEntity;
 
 public class ProblemDTO {
 
+    private Integer id;
+
     private Integer teacherId;
+
+    private String teacherEmail;
 
     private String hint1;
 
@@ -15,11 +19,29 @@ public class ProblemDTO {
     public ProblemDTO() {
     }
 
-    public ProblemDTO(Integer teacherId, String hint1, String hint2, String content) {
+    public ProblemDTO(Integer teacherId, String teacherEmail, String hint1, String hint2, String content) {
         this.teacherId = teacherId;
+        this.teacherEmail = teacherEmail;
         this.hint1 = hint1;
         this.hint2 = hint2;
         this.content = content;
+    }
+
+    public ProblemDTO(Integer id, Integer teacherId, String teacherEmail, String hint1, String hint2, String content) {
+        this.id = id;
+        this.teacherId = teacherId;
+        this.teacherEmail = teacherEmail;
+        this.hint1 = hint1;
+        this.hint2 = hint2;
+        this.content = content;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getTeacherId() {
@@ -28,6 +50,14 @@ public class ProblemDTO {
 
     public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
+    }
+
+    public String getTeacherEmail() {
+        return teacherEmail;
+    }
+
+    public void setTeacherEmail(String teacherEmail) {
+        this.teacherEmail = teacherEmail;
     }
 
     public String getHint1() {
@@ -55,6 +85,6 @@ public class ProblemDTO {
     }
 
     public static ProblemDTO convert(ProblemEntity problemEntity) {
-        return new ProblemDTO(problemEntity.getTeacherId(), problemEntity.getHint1(), problemEntity.getHint2(), problemEntity.getContent());
+        return new ProblemDTO(problemEntity.getTeacherId(), problemEntity.getTeacherEmail(), problemEntity.getHint1(), problemEntity.getHint2(), problemEntity.getContent());
     }
 }

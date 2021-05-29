@@ -18,8 +18,8 @@ public class StudentEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "registrationNumber")
-    private String registrationNumber;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "hashPassword")
     private String hashPassword;
@@ -30,9 +30,9 @@ public class StudentEntity {
     public StudentEntity() {
     }
 
-    public StudentEntity(String name, String registrationNumber, String hashPassword, Integer avatarId) {
+    public StudentEntity(String name, String email, String hashPassword, Integer avatarId) {
         this.name = name;
-        this.registrationNumber = registrationNumber;
+        this.email = email;
         this.hashPassword = hashPassword;
         this.avatarId = avatarId;
     }
@@ -49,12 +49,12 @@ public class StudentEntity {
         this.name = name;
     }
 
-    public String getRegistrationNumber() {
-        return registrationNumber;
+    public String getEmail() {
+        return email;
     }
 
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getHashPassword() {
