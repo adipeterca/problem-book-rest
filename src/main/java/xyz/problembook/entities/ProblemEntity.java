@@ -33,6 +33,7 @@ public class ProblemEntity {
 
     public ProblemEntity(Integer teacherId, String teacherEmail, String hint1, String hint2, String content) {
         this.teacherId = teacherId;
+        this.teacherEmail = teacherEmail;
         this.hint1 = hint1;
         this.hint2 = hint2;
         this.content = content;
