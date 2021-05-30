@@ -40,6 +40,9 @@ public class ProblemService {
     }
 
     public ProblemDTO findNext(Integer currentId) {
+        // The problems start at index 1, while the list starts with index 0.
+        currentId--;
+
         List<ProblemEntity> problemEntityList = problemRepository.findAll();
         if (currentId + 1 >= problemEntityList.size())
             return ProblemDTO.convert(problemEntityList.get(0));
@@ -47,6 +50,9 @@ public class ProblemService {
     }
 
     public ProblemDTO findPrevious(Integer currentId) {
+        // The problems start at index 1, while the list starts with index 0.
+        currentId--;
+
         List<ProblemEntity> problemEntityList = problemRepository.findAll();
         if (currentId == 0)
             return ProblemDTO.convert(problemEntityList.get(problemEntityList.size() - 1));
