@@ -34,8 +34,8 @@ public class TeacherController {
     }
 
     @PutMapping("/")
-    public void updateAvatar(@RequestParam(name = "studentId") Integer studentId,
+    public void updateAvatar(@RequestParam(name = "teacherId") Integer teacherId,
                              @RequestParam(name = "avatarId") Integer avatarId) {
-        teacherService.updateAvatar(studentId, avatarId);
+        teacherService.updateAvatar(teacherId, avatarId);
     }
 }
