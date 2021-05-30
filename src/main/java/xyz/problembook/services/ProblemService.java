@@ -26,7 +26,7 @@ public class ProblemService {
      */
     public int add(ProblemDTO problemDTO) {
         int id = (int)problemRepository.count();
-        problemRepository.save(new ProblemEntity(id, problemDTO.getTeacherId(), problemDTO.getTeacherEmail(), problemDTO.getHint1(), problemDTO.getHint2(), problemDTO.getContent()));
+        problemRepository.save(new ProblemEntity(id + 1, problemDTO.getTeacherId(), problemDTO.getTeacherEmail(), problemDTO.getHint1(), problemDTO.getHint2(), problemDTO.getContent()));
         return problemRepository.getIdOf(problemDTO.getTeacherId(), problemDTO.getHint1(), problemDTO.getHint2(), problemDTO.getContent()).getId();
         // return 0;
     }
