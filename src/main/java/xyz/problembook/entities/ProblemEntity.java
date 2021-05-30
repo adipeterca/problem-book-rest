@@ -10,7 +10,7 @@ import javax.persistence.*;
 @SequenceGenerator(name = "problemSeq", initialValue = 1, allocationSize = 1000)
 public class ProblemEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "problemSeq")
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "problemSeq")
     @Column(name = "id")
     private Integer id;
 
