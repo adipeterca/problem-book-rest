@@ -33,6 +33,9 @@ public class ProblemService {
     }
 
     public ProblemDTO findById(Integer id) {
+        // The problems start at index 1, while the list starts with index 0.
+        id--;
+
         List<ProblemEntity> problemEntityList = problemRepository.findAll();
         if (problemEntityList.size() <= id)
             return null;
