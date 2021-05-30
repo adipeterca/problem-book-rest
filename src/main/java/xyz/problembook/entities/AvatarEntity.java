@@ -8,9 +8,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "avatar")
+@SequenceGenerator(name = "avatarSeq", initialValue = 1, allocationSize = 1000)
 public class AvatarEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "avatarSeq")
     @Column(name = "id")
     private Integer id;
 
