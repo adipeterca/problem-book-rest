@@ -6,6 +6,7 @@ import xyz.problembook.dtos.ProblemDTO;
 import xyz.problembook.entities.ProblemEntity;
 import xyz.problembook.repositories.ProblemRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,16 +37,16 @@ public class ProblemService {
     }
 
     public ProblemDTO findNext(Integer currentId) {
-        ProblemDTO problem = findById(currentId + 1);
-        if (problem == null)
-            return findById(0);
-        return problem;
+        List<ProblemEntity> problemEntityList = problemRepository.findAll();
+        if (currentId + 1 >= problemEntityList.size())
+            return ProblemDTO.convert(problemEntityList.get(0));
+        return ProblemDTO.convert(problemEntityList.get(currentId + 1));
     }
 
     public ProblemDTO findPrevious(Integer currentId) {
-        ProblemDTO problem = findById(currentId - 1);
-        if (problem == null)
-            return findById((int) problemRepository.count());
-        return problem;
+        List<ProblemEntity> problemEntityList = problemRepository.findAll();
+        if (currentId == 0)
+            return ProblemDTO.convert(problemEntityList.get(problemEntityList.size() - 1));
+        return ProblemDTO.convert(problemEntityList.get(currentId - 1));
     }
 }
