@@ -31,9 +31,10 @@ public class ProblemService {
     }
 
     public ProblemDTO findById(Integer id) {
-        Optional<ProblemEntity> problemEntity = problemRepository.findById(id);
-        if (problemEntity.isEmpty()) return null;
-        return ProblemDTO.convert(problemEntity.get());
+        List<ProblemEntity> problemEntityList = problemRepository.findAll();
+        if (problemEntityList.size() <= id)
+            return null;
+        return ProblemDTO.convert(problemEntityList.get(id));
     }
 
     public ProblemDTO findNext(Integer currentId) {
