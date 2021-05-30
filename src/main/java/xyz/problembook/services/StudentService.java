@@ -48,7 +48,7 @@ public class StudentService {
         if (student == null) return null;
 
         if (student.getName().equals(loginDTO.getName()) && student.getHashPassword().equals(loginDTO.getHashPassword()))
-            return new LoggedInDTO(student.getName(), student.getEmail(), student.getAvatarId());
+            return new LoggedInDTO(student.getId(), student.getName(), student.getEmail(), student.getAvatarId());
         return null;
     }
 

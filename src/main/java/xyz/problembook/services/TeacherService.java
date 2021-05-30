@@ -45,7 +45,7 @@ public class TeacherService {
         if (teacher == null) return null;
 
         if (teacher.getName().equals(loginDTO.getName()) && teacher.getHashPassword().equals(loginDTO.getHashPassword()))
-            return new LoggedInDTO(teacher.getName(), teacher.getEmail(), teacher.getAvatarId());
+            return new LoggedInDTO(teacher.getId(), teacher.getName(), teacher.getEmail(), teacher.getAvatarId());
         return null;
     }
 
