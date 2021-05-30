@@ -2,6 +2,7 @@ package xyz.problembook.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import xyz.problembook.dtos.LoggedInDTO;
 import xyz.problembook.dtos.LoginDTO;
 import xyz.problembook.entities.StudentEntity;
@@ -52,6 +53,7 @@ public class StudentService {
         return null;
     }
 
+    @Transactional
     public void updateAvatar(Integer studentId, Integer avatarId) {
         studentRepository.updateAvatar(studentId, avatarId);
     }

@@ -2,6 +2,7 @@ package xyz.problembook.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import xyz.problembook.dtos.LoggedInDTO;
 import xyz.problembook.dtos.LoginDTO;
 import xyz.problembook.dtos.RegisterDTO;
@@ -54,6 +55,7 @@ public class TeacherService {
      * @param teacherId the teacher's ID
      * @param avatarId the new avatar's ID
      */
+    @Transactional
     public void updateAvatar(Integer teacherId, Integer avatarId) {
         teacherRepository.updateAvatar(teacherId, avatarId);
     }
