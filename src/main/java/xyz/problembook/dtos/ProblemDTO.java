@@ -85,6 +85,6 @@ public class ProblemDTO {
     }
 
     public static ProblemDTO convert(ProblemEntity problemEntity) {
-        return new ProblemDTO(problemEntity.getTeacherId(), problemEntity.getTeacherEmail(), problemEntity.getHint1(), problemEntity.getHint2(), problemEntity.getContent());
+        return new ProblemDTO(problemEntity.getId(), problemEntity.getTeacherId(), problemEntity.getTeacherEmail(), problemEntity.getHint1(), problemEntity.getHint2(), problemEntity.getContent());
     }
 }
